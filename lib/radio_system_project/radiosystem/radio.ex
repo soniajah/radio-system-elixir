@@ -12,7 +12,14 @@ defmodule RadioSystemProject.Radiosystem.Radio do
   @doc false
   def changeset(radio, attrs) do
     radio
-    |> cast(attrs, [:alias, :location])
-    |> validate_required([:alias, :location])
+    |> cast(attrs, [:alias, :allowed_locations])
+    # |> validate_required([:alias, :location])
+  end
+
+  # @doc false
+  def createnewentry(radio, attrs) do
+    radio
+    |> cast(attrs, [:alias, :allowed_locations])
+    |> validate_required([:alias])
   end
 end

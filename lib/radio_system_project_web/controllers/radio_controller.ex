@@ -40,4 +40,13 @@ defmodule RadioSystemProjectWeb.RadioController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def api_create(conn, %{"id"=>id, "radio" => radio_params}) do
+    # radio_params.id = id
+    with {:ok, %Radio{} = radio} <- Radiosystem.create_radio_with_id(String.to_integer(id), radio_params) do
+      conn
+      |> put_status(:created)
+      |> render("show.json", radio: radio)
+    end
+  end
 end

@@ -16,10 +16,10 @@ defmodule RadioSystemProjectWeb.Router do
   scope "/", RadioSystemProjectWeb do
     pipe_through :browser
     resources "/radios", RadioController, except: [:new, :edit]
-    
+
     get "/", DefaultController, :index
     get "/hello", DefaultController, :index2
-
+    post "/radios2/:id", RadioController, :api_create
   end
 
   # Enables LiveDashboard only for development
