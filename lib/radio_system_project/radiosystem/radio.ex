@@ -27,9 +27,6 @@ defmodule RadioSystemProject.Radiosystem.Radio do
   def updatelocation(radio, location) do
     radio
     |> cast(%{location: location}, [:location])
-    |> validate_required([:location])
-
-
-   
+    |> validate_required([:location])   
   end
 end

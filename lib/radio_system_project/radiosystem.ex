@@ -102,13 +102,20 @@ defmodule RadioSystemProject.Radiosystem do
     Radio.changeset(radio, attrs)
   end
 
-  # my functions
+  @doc """
+  Creates a radio with a specific id.    
+
+  """
   def create_radio_with_id(id, attrs \\ %{}) do
     %Radio{id: id}
     |> Radio.createnewentry(attrs)
     |> Repo.insert()
   end
 
+  @doc """
+  Updates a radio location with a specific radio id.
+
+  """
   def update_location(%Radio{} = radio, location) do
     radio
     |> Radio.updatelocation(location)
