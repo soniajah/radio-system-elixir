@@ -1,6 +1,6 @@
 # RadioSystemProject
 
-Update the ./src/config/dev.exs file with your PostgreSql credentials.
+Update the ./config/dev.exs file with your PostgreSql credentials.
 
 To start your Phoenix server:
 
