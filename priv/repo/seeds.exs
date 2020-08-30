@@ -12,6 +12,5 @@
 
 alias RadioSystemProject.Repo
 alias RadioSystemProject.Radiosystem.Radio
-# Repo.insert! %Radio{alias: "Radio1", location: "CPH-1", allowed_locations: ["1", "2"]}
-# Repo.insert! %Radio{alias: "Radio2", location: "CPH-2", allowed_locations: ["1", "2"]}
-Repo.insert! %Radio{id: 101, alias: "Radio2", location: "CPH-2", allowed_locations: ["1", "2"]}
+Repo.insert! %Radio{alias: "Radio1", location: "CPH-1", allowed_locations: ["1", "2"]}
+Repo.insert! %Radio{alias: "Radio2", location: "CPH-2", allowed_locations: ["1", "2"]}
