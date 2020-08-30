@@ -5,7 +5,7 @@ defmodule RadioSystemProject.Radiosystem.Radio do
   schema "radios" do
     field :alias, :string
     field :location, :string
-
+    field :allowed_locations, {:array, :string}
     timestamps()
   end
 
