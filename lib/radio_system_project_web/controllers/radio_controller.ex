@@ -41,12 +41,31 @@ defmodule RadioSystemProjectWeb.RadioController do
     end
   end
 
+  # My functions
+
   def api_create(conn, %{"id"=>id, "radio" => radio_params}) do
-    # radio_params.id = id
     with {:ok, %Radio{} = radio} <- Radiosystem.create_radio_with_id(String.to_integer(id), radio_params) do
       conn
       |> put_status(:created)
       |> render("show.json", radio: radio)
     end
+  end
+
+  def api_update_location(conn, %{"id"=>id, "location" => location}) do  
+    radio = Radiosystem.get_radio!(id)
+    if Enum.member?(radio.allowed_locations, location) do
+      with {:ok, %Radio{} = radio} <- Radiosystem.update_location(radio, location) do
+        render(conn, "show.json", radio: radio)
+      end
+    else
+      conn 
+      |> put_status(403)
+      |> render("error.json", radio: radio)
+    end
+  end
+
+  def api_get_location(conn, %{"id" => id}) do 
+      radio = Radiosystem.get_radio!(id)
+      render(conn, "location.json", radio: radio)
   end
 end

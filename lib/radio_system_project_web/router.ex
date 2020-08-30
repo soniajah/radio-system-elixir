@@ -18,8 +18,9 @@ defmodule RadioSystemProjectWeb.Router do
     resources "/radios", RadioController, except: [:new, :edit]
 
     get "/", DefaultController, :index
-    get "/hello", DefaultController, :index2
     post "/radios2/:id", RadioController, :api_create
+    post "/radios2/:id/location", RadioController, :api_update_location
+    get "/radios2/:id/location", RadioController, :api_get_location
   end
 
   # Enables LiveDashboard only for development

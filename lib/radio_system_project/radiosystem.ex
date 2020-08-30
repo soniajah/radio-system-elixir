@@ -55,12 +55,6 @@ defmodule RadioSystemProject.Radiosystem do
     |> Repo.insert()
   end
   
-  def create_radio_with_id(id, attrs \\ %{}) do
-    %Radio{id: id}
-    |> Radio.createnewentry(attrs)
-    |> Repo.insert()
-  end
-  
   @doc """
   Updates a radio.
 
@@ -106,5 +100,18 @@ defmodule RadioSystemProject.Radiosystem do
   """
   def change_radio(%Radio{} = radio, attrs \\ %{}) do
     Radio.changeset(radio, attrs)
+  end
+
+  # my functions
+  def create_radio_with_id(id, attrs \\ %{}) do
+    %Radio{id: id}
+    |> Radio.createnewentry(attrs)
+    |> Repo.insert()
+  end
+
+  def update_location(%Radio{} = radio, location) do
+    radio
+    |> Radio.updatelocation(location)
+    |> Repo.update()
   end
 end

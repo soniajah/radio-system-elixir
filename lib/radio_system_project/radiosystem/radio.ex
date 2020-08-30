@@ -22,4 +22,14 @@ defmodule RadioSystemProject.Radiosystem.Radio do
     |> cast(attrs, [:alias, :allowed_locations])
     |> validate_required([:alias])
   end
+
+  # @doc false
+  def updatelocation(radio, location) do
+    radio
+    |> cast(%{location: location}, [:location])
+    |> validate_required([:location])
+
+
+   
+  end
 end

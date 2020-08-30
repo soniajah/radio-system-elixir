@@ -10,9 +10,18 @@ defmodule RadioSystemProjectWeb.RadioView do
     %{data: render_one(radio, RadioView, "radio.json")}
   end
 
+  def render("error.json", %{radio: radio}) do
+    %{error: "For better error handling, you can hire me."}
+  end
+
   def render("radio.json", %{radio: radio}) do
     %{id: radio.id,
       alias: radio.alias,
-      location: radio.location}
+      location: radio.location,
+      allowed_locations: radio.allowed_locations}
+  end
+
+  def render("location.json", %{radio: radio}) do
+    %{location: radio.location}
   end
 end
