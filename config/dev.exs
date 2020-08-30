@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :radio_system_project, RadioSystemProject.Repo,
   username: "postgres",
-  password: "test123",
+  password: "postgres",
   database: "radio_system_project_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
